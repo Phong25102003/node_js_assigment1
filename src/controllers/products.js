@@ -1,14 +1,16 @@
 import Products from "../models/products";
 
 import joi from "joi";
+import category from "../models/category";
 
 const productSchema = joi.object({
     name: joi.string().required(),
     price: joi.number().required(),
     disc: joi.string().required(),
     status: joi.boolean().required(),
-    quality: joi.number().required()
-})
+    quality: joi.number().required(),
+    categoryId: joi.string().required(),
+});
 
 export const create = async (req, res) => {
     try {
